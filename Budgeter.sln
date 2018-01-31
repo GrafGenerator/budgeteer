@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Budgeter.Entrypoint.API", "src\Budgeter.Entrypoint.API\Budgeter.Entrypoint.API.csproj", "{33AB6608-A1C4-49B6-A32E-4A3213E71911}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{722E6C14-27A4-435C-B200-D2044A6EED95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Budgeter.Domain", "src\Budgeter.Domain\Budgeter.Domain.csproj", "{EB1C4308-A41B-4A8D-8C9B-D4A0F2A2F609}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33AB6608-A1C4-49B6-A32E-4A3213E71911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33AB6608-A1C4-49B6-A32E-4A3213E71911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33AB6608-A1C4-49B6-A32E-4A3213E71911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33AB6608-A1C4-49B6-A32E-4A3213E71911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB1C4308-A41B-4A8D-8C9B-D4A0F2A2F609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB1C4308-A41B-4A8D-8C9B-D4A0F2A2F609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB1C4308-A41B-4A8D-8C9B-D4A0F2A2F609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB1C4308-A41B-4A8D-8C9B-D4A0F2A2F609}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB1C4308-A41B-4A8D-8C9B-D4A0F2A2F609} = {722E6C14-27A4-435C-B200-D2044A6EED95}
+	EndGlobalSection
+EndGlobal
