@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Budgeter.Domain.Model</AssemblyName>
+    <RootNamespace>Budgeter.Domain.Model</RootNamespace>
+  </PropertyGroup>
+</Project>
