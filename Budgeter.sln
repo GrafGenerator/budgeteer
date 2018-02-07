@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Budgeter.Domain", "src\Budg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Budgeter.Domain.Model", "src\Budgeter.Model\Budgeter.Domain.Model.csproj", "{7C74D04C-F9DF-4CE4-8D17-5435C8A50799}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Budgeter.Domain.EF", "Budgeter.Domain.EF\Budgeter.Domain.EF.csproj", "{911BE7C3-41BD-4C0C-8374-D407DCFB8D72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +28,14 @@ Global
 		{7C74D04C-F9DF-4CE4-8D17-5435C8A50799}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C74D04C-F9DF-4CE4-8D17-5435C8A50799}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C74D04C-F9DF-4CE4-8D17-5435C8A50799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{911BE7C3-41BD-4C0C-8374-D407DCFB8D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{911BE7C3-41BD-4C0C-8374-D407DCFB8D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{911BE7C3-41BD-4C0C-8374-D407DCFB8D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{911BE7C3-41BD-4C0C-8374-D407DCFB8D72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EB1C4308-A41B-4A8D-8C9B-D4A0F2A2F609} = {722E6C14-27A4-435C-B200-D2044A6EED95}
 		{7C74D04C-F9DF-4CE4-8D17-5435C8A50799} = {722E6C14-27A4-435C-B200-D2044A6EED95}
+		{911BE7C3-41BD-4C0C-8374-D407DCFB8D72} = {722E6C14-27A4-435C-B200-D2044A6EED95}
 	EndGlobalSection
 EndGlobal
