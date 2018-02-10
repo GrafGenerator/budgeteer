@@ -1,4 +1,6 @@
 ﻿using System;
+using Budgeter.Domain.EF.Configuration;
+using Budgeter.Domain.EF.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -16,7 +18,7 @@ namespace Budgeter.Domain.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.UseMap<ResourceDelta, ResourceDeltaMap>();
         }
     }
 }

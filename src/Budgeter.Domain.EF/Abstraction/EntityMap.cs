@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+﻿using Budgeter.Domain.Model;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Budgeter.Domain.EF.Abstraction
 {
-    public class EntityMap: ModelBuilder
+    public interface IEntityMap<TEntity>
+        where TEntity : class, IEntity
     {
-        public EntityMap(ConventionSet conventions) : base(conventions)
-        {
-        }
+        void BuildModel(EntityTypeBuilder<TEntity> builder);
     }
 }

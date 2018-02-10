@@ -1,14 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Budgeter.Domain.EF.Abstraction;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Budgeter.Domain.EF.Configuration
 {
-    public class ResourceDeltaMap
+    public class ResourceDeltaMap: IEntityMap<ResourceDelta>
     {
-        public ResourceDeltaMap()
+        public void BuildModel(EntityTypeBuilder<ResourceDelta> builder)
         {
-            //ToTable("ResourceDelta");
+            builder.ToTable("ResourceDelta");
 
-            //Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            builder.Property(t => t.Id).ValueGeneratedNever();
         }
     }
 }
