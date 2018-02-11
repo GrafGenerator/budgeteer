@@ -50,7 +50,7 @@ namespace Budgeter.Domain.EF.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ResourceDelta_CategoryId",
                 table: "ResourceDelta",
-                column: "CategoryId");s
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ResourceDeltaCategory_ParentCategoryId",
