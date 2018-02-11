@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace Budgeter.Domain.EF.Migrations
@@ -27,6 +28,9 @@ namespace Budgeter.Domain.EF.Migrations
 
                     b.Property<int>("CategoryId");
 
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000);
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -36,8 +40,11 @@ namespace Budgeter.Domain.EF.Migrations
 
             modelBuilder.Entity("Budgeter.Domain.ResourceDeltaCategory", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(256);
 
                     b.Property<int?>("ParentCategoryId");
 
@@ -53,14 +60,15 @@ namespace Budgeter.Domain.EF.Migrations
                     b.HasOne("Budgeter.Domain.ResourceDeltaCategory", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 
             modelBuilder.Entity("Budgeter.Domain.ResourceDeltaCategory", b =>
                 {
                     b.HasOne("Budgeter.Domain.ResourceDeltaCategory", "ParentCategory")
                         .WithMany()
-                        .HasForeignKey("ParentCategoryId");
+                        .HasForeignKey("ParentCategoryId")
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 #pragma warning restore 612, 618
         }

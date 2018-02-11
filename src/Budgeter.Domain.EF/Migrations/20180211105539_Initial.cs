@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
@@ -13,8 +12,8 @@ namespace Budgeter.Domain.EF.Migrations
                 name: "ResourceDeltaCategory",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(maxLength: 256, nullable: false),
                     ParentCategoryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -25,7 +24,7 @@ namespace Budgeter.Domain.EF.Migrations
                         column: x => x.ParentCategoryId,
                         principalTable: "ResourceDeltaCategory",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -34,7 +33,8 @@ namespace Budgeter.Domain.EF.Migrations
                 {
                     Id = table.Column<int>(nullable: false),
                     Amount = table.Column<decimal>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false)
+                    CategoryId = table.Column<int>(nullable: false),
+                    Description = table.Column<string>(maxLength: 1000, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -44,13 +44,13 @@ namespace Budgeter.Domain.EF.Migrations
                         column: x => x.CategoryId,
                         principalTable: "ResourceDeltaCategory",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ResourceDelta_CategoryId",
                 table: "ResourceDelta",
-                column: "CategoryId");
+                column: "CategoryId");s
 
             migrationBuilder.CreateIndex(
                 name: "IX_ResourceDeltaCategory_ParentCategoryId",

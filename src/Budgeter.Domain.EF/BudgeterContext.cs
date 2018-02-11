@@ -1,8 +1,5 @@
-﻿using System;
-using Budgeter.Domain.EF.Configuration;
-using Budgeter.Domain.EF.Extensions;
+﻿using Budgeter.Domain.EF.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Budgeter.Domain.EF
 {
@@ -11,14 +8,14 @@ namespace Budgeter.Domain.EF
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(@"Data Source=ROCKET;Initial Catalog=BudgeterCore;Integrated Security=True;");
-            }
+                optionsBuilder.UseSqlServer(
+                    @"Data Source=ROCKET;Initial Catalog=BudgeterCore;Integrated Security=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.UseMap<ResourceDelta, ResourceDeltaMap>();
+            modelBuilder.ApplyConfiguration(new ResourceDeltaMap());
+            modelBuilder.ApplyConfiguration(new ResourceDeltaCategoryMap());
         }
     }
 }
