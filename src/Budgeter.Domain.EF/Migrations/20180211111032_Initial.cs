@@ -24,7 +24,7 @@ namespace Budgeter.Domain.EF.Migrations
                         column: x => x.ParentCategoryId,
                         principalTable: "ResourceDeltaCategory",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,7 +44,7 @@ namespace Budgeter.Domain.EF.Migrations
                         column: x => x.CategoryId,
                         principalTable: "ResourceDeltaCategory",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

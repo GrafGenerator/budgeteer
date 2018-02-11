@@ -17,7 +17,7 @@ namespace Budgeter.Domain.EF.Configuration
                 .HasOne(t => t.Category)
                 .WithMany()
                 .IsRequired()
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Budgeter.Domain.EF.Configuration
             builder
                 .HasOne(t => t.ParentCategory)
                 .WithMany()
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -60,7 +60,7 @@ namespace Budgeter.Domain.EF.Migrations
                     b.HasOne("Budgeter.Domain.ResourceDeltaCategory", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Budgeter.Domain.ResourceDeltaCategory", b =>
@@ -68,7 +68,7 @@ namespace Budgeter.Domain.EF.Migrations
                     b.HasOne("Budgeter.Domain.ResourceDeltaCategory", "ParentCategory")
                         .WithMany()
                         .HasForeignKey("ParentCategoryId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }
