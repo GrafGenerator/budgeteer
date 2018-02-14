@@ -6,16 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Budgeter.Entrypoint.API.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Route(ApiConstants.ApiRoot + "resourceDeltaCategories")]
+    public class ResourceDeltaCategoriesController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] {"value1", "value2"};
-        }
-
         // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)
