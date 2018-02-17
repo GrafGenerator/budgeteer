@@ -15,4 +15,12 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Budgeter.DAL.CQRS\Budgeter.DAL.CQRS.csproj" />
+    <ProjectReference Include="..\Budgeter.Domain.EF\Budgeter.Domain.EF.csproj" />
+    <ProjectReference Include="..\Budgeter.Domain\Budgeter.Domain.csproj">
+      <Project>{EB1C4308-A41B-4A8D-8C9B-D4A0F2A2F609}</Project>
+      <Name>Budgeter.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

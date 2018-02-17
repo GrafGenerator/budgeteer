@@ -22,11 +22,11 @@ namespace Budgeter.Domain.EF.Migrations
 
             modelBuilder.Entity("Budgeter.Domain.ResourceDelta", b =>
                 {
-                    b.Property<int>("Id");
+                    b.Property<long>("Id");
 
                     b.Property<decimal>("Amount");
 
-                    b.Property<int>("CategoryId");
+                    b.Property<long>("CategoryId");
 
                     b.Property<string>("Description")
                         .HasMaxLength(1000);
@@ -40,13 +40,13 @@ namespace Budgeter.Domain.EF.Migrations
 
             modelBuilder.Entity("Budgeter.Domain.ResourceDeltaCategory", b =>
                 {
-                    b.Property<int>("Id");
+                    b.Property<long>("Id");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(256);
 
-                    b.Property<int?>("ParentCategoryId");
+                    b.Property<long?>("ParentCategoryId");
 
                     b.HasKey("Id");
 

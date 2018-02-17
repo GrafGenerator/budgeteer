@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Budgeter.DAL.CQRS.Repository;
+using Budgeter.Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Budgeter.Entrypoint.API.Controllers
@@ -9,6 +11,13 @@ namespace Budgeter.Entrypoint.API.Controllers
     [Route(ApiConstants.ApiRoot + "resourceDeltaCategories")]
     public class ResourceDeltaCategoriesController : Controller
     {
+        private readonly IRepository<ResourceDelta> _repository;
+
+        public ResourceDeltaCategoriesController(IRepository<ResourceDelta> repository)
+        {
+            _repository = repository;
+        }
+
         // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)

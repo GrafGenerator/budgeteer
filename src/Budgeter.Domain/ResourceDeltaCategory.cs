@@ -4,8 +4,8 @@ namespace Budgeter.Domain
 {
     public class ResourceDeltaCategory: IEntity
     {
-        public int Id { get; set; }
-        public int? ParentCategoryId { get; set; }
+        public long Id { get; set; }
+        public long? ParentCategoryId { get; set; }
 
         public string Name { get; set; }
 

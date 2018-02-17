@@ -12,9 +12,9 @@ namespace Budgeter.Domain.EF.Migrations
                 name: "ResourceDeltaCategory",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<long>(nullable: false),
                     Name = table.Column<string>(maxLength: 256, nullable: false),
-                    ParentCategoryId = table.Column<int>(nullable: true)
+                    ParentCategoryId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -31,9 +31,9 @@ namespace Budgeter.Domain.EF.Migrations
                 name: "ResourceDelta",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<long>(nullable: false),
                     Amount = table.Column<decimal>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false),
+                    CategoryId = table.Column<long>(nullable: false),
                     Description = table.Column<string>(maxLength: 1000, nullable: true)
                 },
                 constraints: table =>
