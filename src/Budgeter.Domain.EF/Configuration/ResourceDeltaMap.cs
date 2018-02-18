@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Budgeter.Domain.EF.Configuration
 {
-    public class ResourceDeltaMap: IEntityTypeConfiguration<ResourceDelta>
+    public class ResourceDeltaMap : IEntityTypeConfiguration<ResourceDelta>
     {
         public void Configure(EntityTypeBuilder<ResourceDelta> builder)
         {

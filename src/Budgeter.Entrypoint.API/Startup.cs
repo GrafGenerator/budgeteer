@@ -14,8 +14,8 @@ namespace Budgeter.Entrypoint.API
     // ReSharper disable once ClassNeverInstantiated.Global
     public class Startup
     {
-        private Container _container = new Container();
-        
+        private readonly Container _container = new Container();
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,7 +33,8 @@ namespace Budgeter.Entrypoint.API
             IntegrateSimpleInjector(services);
         }
 
-        private void IntegrateSimpleInjector(IServiceCollection services) {
+        private void IntegrateSimpleInjector(IServiceCollection services)
+        {
             _container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -44,17 +45,14 @@ namespace Budgeter.Entrypoint.API
             services.EnableSimpleInjectorCrossWiring(_container);
             services.UseSimpleInjectorAspNetRequestScoping(_container);
         }
-        
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             _container.ConfigureAppRegistrations(app);
             _container.Verify();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseMvc();
         }

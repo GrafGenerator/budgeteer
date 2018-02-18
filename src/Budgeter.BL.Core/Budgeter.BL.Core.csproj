@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Budgeter.Domain\Budgeter.Domain.csproj">
+      <Project>{EB1C4308-A41B-4A8D-8C9B-D4A0F2A2F609}</Project>
+      <Name>Budgeter.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Budgeter.Model\Budgeter.Domain.Model.csproj">
+      <Project>{7C74D04C-F9DF-4CE4-8D17-5435C8A50799}</Project>
+      <Name>Budgeter.Domain.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
