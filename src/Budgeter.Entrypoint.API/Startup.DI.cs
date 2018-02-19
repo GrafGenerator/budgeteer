@@ -1,4 +1,6 @@
-﻿using Budgeter.DAL.CQRS;
+﻿using Budgeter.BL.Core;
+using Budgeter.BL.Impl;
+using Budgeter.DAL.CQRS;
 using Budgeter.Domain.EF;
 using Microsoft.AspNetCore.Builder;
 using SimpleInjector;
@@ -15,7 +17,9 @@ namespace Budgeter.Entrypoint.API
 
             container
                 .UseEfAbstractions()
-                .UseDalAbstractions();
+                .UseDalAbstractions()
+                .UseBlHandlingCore()
+                .UseBlHandlingImplementations();
         }
     }
 }

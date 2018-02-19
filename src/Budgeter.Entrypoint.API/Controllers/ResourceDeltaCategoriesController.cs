@@ -1,4 +1,6 @@
-﻿using Budgeter.DAL.CQRS.Repository;
+﻿using Budgeter.BL.Core;
+using Budgeter.BL.Core.GenericResults;
+using Budgeter.BL.Impl.Handlers.ResourceDeltaCategory.AddResourceDeltaCategory;
 using Budgeter.Domain;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,11 +9,11 @@ namespace Budgeter.Entrypoint.API.Controllers
     [Route(ApiConstants.ApiRoot + "resourceDeltaCategories")]
     public class ResourceDeltaCategoriesController : Controller
     {
-        private readonly IRepository<ResourceDelta> _repository;
+        private readonly IOperationHandlersFactory _handlersFactory;
 
-        public ResourceDeltaCategoriesController(IRepository<ResourceDelta> repository)
+        public ResourceDeltaCategoriesController(IOperationHandlersFactory handlersFactory)
         {
-            _repository = repository;
+            _handlersFactory = handlersFactory;
         }
 
         // GET api/values/5
@@ -25,6 +27,9 @@ namespace Budgeter.Entrypoint.API.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
+            var handler =
+                _handlersFactory.Get<AddResourceDeltaCategoryCommand, AddEntityResult<ResourceDeltaCategory>>();
+            handler.Handle(null);
         }
 
         // PUT api/values/5

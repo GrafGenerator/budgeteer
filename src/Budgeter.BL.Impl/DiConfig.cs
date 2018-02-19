@@ -1,0 +1,18 @@
+﻿using Budgeter.BL.Core;
+using Budgeter.BL.Impl.Handlers.ResourceDeltaCategory.AddResourceDeltaCategory;
+using SimpleInjector;
+
+namespace Budgeter.BL.Impl
+{
+    public static class DiConfig
+    {
+        public static Container UseBlHandlingImplementations(this Container container)
+        {
+            var handlersAssemblies = new[] {typeof(AddResourceDeltaCategoryHandler).Assembly};
+
+            container.Register(typeof(IOperationHandler<,>), handlersAssemblies, Lifestyle.Scoped);
+
+            return container;
+        }
+    }
+}

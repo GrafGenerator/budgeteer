@@ -12,4 +12,7 @@
       <Name>Budgeter.Domain.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SimpleInjector" Version="4.0.12" />
+  </ItemGroup>
 </Project>

@@ -16,6 +16,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Budgeter.BL.Core\Budgeter.BL.Core.csproj" />
+    <ProjectReference Include="..\Budgeter.BL.Impl\Budgeter.BL.Impl.csproj" />
     <ProjectReference Include="..\Budgeter.DAL.CQRS\Budgeter.DAL.CQRS.csproj" />
     <ProjectReference Include="..\Budgeter.Domain.EF\Budgeter.Domain.EF.csproj" />
     <ProjectReference Include="..\Budgeter.Domain\Budgeter.Domain.csproj">
