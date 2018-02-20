@@ -2,9 +2,10 @@
 using Budgeter.BL.Core.GenericResults;
 using Budgeter.BL.Impl.Handlers.ResourceDeltaCategory.AddResourceDeltaCategory;
 using Budgeter.Domain;
+using Budgeter.Entrypoint.API.Controllers.ResourceDeltaCategories.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Budgeter.Entrypoint.API.Controllers
+namespace Budgeter.Entrypoint.API.Controllers.ResourceEntryCategories
 {
     [Route(ApiConstants.ApiRoot + "resourceEntryCategories")]
     public class ResourceEntryCategoriesController : Controller
@@ -25,7 +26,7 @@ namespace Budgeter.Entrypoint.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] CreateResourceEntryCategoryDto dto)
         {
             var handler =
                 _handlersFactory.Get<AddResourceEntryCategoryCommand, AddEntityResult<ResourceEntryCategory>>();
