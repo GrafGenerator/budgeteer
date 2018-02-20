@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Budgeter.Entrypoint.API.Controllers
 {
-    [Route(ApiConstants.ApiRoot + "resourceDeltaCategories")]
-    public class ResourceDeltaCategoriesController : Controller
+    [Route(ApiConstants.ApiRoot + "resourceEntryCategories")]
+    public class ResourceEntryCategoriesController : Controller
     {
         private readonly IOperationHandlersFactory _handlersFactory;
 
-        public ResourceDeltaCategoriesController(IOperationHandlersFactory handlersFactory)
+        public ResourceEntryCategoriesController(IOperationHandlersFactory handlersFactory)
         {
             _handlersFactory = handlersFactory;
         }
@@ -28,7 +28,7 @@ namespace Budgeter.Entrypoint.API.Controllers
         public void Post([FromBody] string value)
         {
             var handler =
-                _handlersFactory.Get<AddResourceDeltaCategoryCommand, AddEntityResult<ResourceDeltaCategory>>();
+                _handlersFactory.Get<AddResourceEntryCategoryCommand, AddEntityResult<ResourceEntryCategory>>();
             handler.Handle(null);
         }
 

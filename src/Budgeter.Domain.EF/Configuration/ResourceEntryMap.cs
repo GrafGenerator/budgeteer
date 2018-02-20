@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Budgeter.Domain.EF.Configuration
 {
-    public class ResourceDeltaMap : IEntityTypeConfiguration<ResourceDelta>
+    public class ResourceEntryMap : IEntityTypeConfiguration<ResourceEntry>
     {
-        public void Configure(EntityTypeBuilder<ResourceDelta> builder)
+        public void Configure(EntityTypeBuilder<ResourceEntry> builder)
         {
-            builder.ToTable("ResourceDelta");
+            builder.ToTable("ResourceEntry");
 
             builder.Property(t => t.Id).ValueGeneratedNever();
             builder.Property(t => t.Amount).IsRequired();

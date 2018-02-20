@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Budgeter.Domain.EF.Configuration
 {
-    public class ResourceDeltaCategoryMap : IEntityTypeConfiguration<ResourceDeltaCategory>
+    public class ResourceEntryCategoryMap : IEntityTypeConfiguration<ResourceEntryCategory>
     {
-        public void Configure(EntityTypeBuilder<ResourceDeltaCategory> builder)
+        public void Configure(EntityTypeBuilder<ResourceEntryCategory> builder)
         {
-            builder.ToTable("ResourceDeltaCategory");
+            builder.ToTable("ResourceEntryCategory");
 
             builder.Property(t => t.Id).ValueGeneratedNever();
             builder.Property(t => t.Name).IsRequired().HasMaxLength(256);

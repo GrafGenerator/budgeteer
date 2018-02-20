@@ -2,7 +2,7 @@
 
 namespace Budgeter.BL.Impl.Handlers.ResourceDeltaCategory.AddResourceDeltaCategory
 {
-    public class AddResourceDeltaCategoryCommand : IOperationCommand
+    public class AddResourceEntryCategoryCommand : IOperationCommand
     {
     }
 }

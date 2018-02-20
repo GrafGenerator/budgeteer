@@ -2,6 +2,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
+  <PropertyGroup>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Budgeter.Domain\Budgeter.Domain.csproj" />
   </ItemGroup>

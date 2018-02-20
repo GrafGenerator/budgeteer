@@ -14,8 +14,8 @@ namespace Budgeter.Domain.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ResourceDeltaMap());
-            modelBuilder.ApplyConfiguration(new ResourceDeltaCategoryMap());
+            modelBuilder.ApplyConfiguration(new ResourceEntryMap());
+            modelBuilder.ApplyConfiguration(new ResourceEntryCategoryMap());
         }
     }
 }

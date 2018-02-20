@@ -11,8 +11,8 @@ using System;
 namespace Budgeter.Domain.EF.Migrations
 {
     [DbContext(typeof(BudgeterContext))]
-    [Migration("20180217093521_Initial")]
-    partial class Initial
+    [Migration("20180220164834_InitialEntities")]
+    partial class InitialEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace Budgeter.Domain.EF.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Budgeter.Domain.ResourceDelta", b =>
+            modelBuilder.Entity("Budgeter.Domain.ResourceEntry", b =>
                 {
                     b.Property<long>("Id");
 
@@ -36,10 +36,10 @@ namespace Budgeter.Domain.EF.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("ResourceDelta");
+                    b.ToTable("ResourceEntry");
                 });
 
-            modelBuilder.Entity("Budgeter.Domain.ResourceDeltaCategory", b =>
+            modelBuilder.Entity("Budgeter.Domain.ResourceEntryCategory", b =>
                 {
                     b.Property<long>("Id");
 
@@ -53,20 +53,20 @@ namespace Budgeter.Domain.EF.Migrations
 
                     b.HasIndex("ParentCategoryId");
 
-                    b.ToTable("ResourceDeltaCategory");
+                    b.ToTable("ResourceEntryCategory");
                 });
 
-            modelBuilder.Entity("Budgeter.Domain.ResourceDelta", b =>
+            modelBuilder.Entity("Budgeter.Domain.ResourceEntry", b =>
                 {
-                    b.HasOne("Budgeter.Domain.ResourceDeltaCategory", "Category")
+                    b.HasOne("Budgeter.Domain.ResourceEntryCategory", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("Budgeter.Domain.ResourceDeltaCategory", b =>
+            modelBuilder.Entity("Budgeter.Domain.ResourceEntryCategory", b =>
                 {
-                    b.HasOne("Budgeter.Domain.ResourceDeltaCategory", "ParentCategory")
+                    b.HasOne("Budgeter.Domain.ResourceEntryCategory", "ParentCategory")
                         .WithMany()
                         .HasForeignKey("ParentCategoryId")
                         .OnDelete(DeleteBehavior.Restrict);

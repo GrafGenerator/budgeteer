@@ -1,14 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
+using System.Collections.Generic;
 
 namespace Budgeter.Domain.EF.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialEntities : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                "ResourceDeltaCategory",
-                table => new
+                name: "ResourceEntryCategory",
+                columns: table => new
                 {
                     Id = table.Column<long>(nullable: false),
                     Name = table.Column<string>(maxLength: 256, nullable: false),
@@ -16,18 +18,18 @@ namespace Budgeter.Domain.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ResourceDeltaCategory", x => x.Id);
+                    table.PrimaryKey("PK_ResourceEntryCategory", x => x.Id);
                     table.ForeignKey(
-                        "FK_ResourceDeltaCategory_ResourceDeltaCategory_ParentCategoryId",
-                        x => x.ParentCategoryId,
-                        "ResourceDeltaCategory",
-                        "Id",
+                        name: "FK_ResourceEntryCategory_ResourceEntryCategory_ParentCategoryId",
+                        column: x => x.ParentCategoryId,
+                        principalTable: "ResourceEntryCategory",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                "ResourceDelta",
-                table => new
+                name: "ResourceEntry",
+                columns: table => new
                 {
                     Id = table.Column<long>(nullable: false),
                     Amount = table.Column<decimal>(nullable: false),
@@ -36,33 +38,33 @@ namespace Budgeter.Domain.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ResourceDelta", x => x.Id);
+                    table.PrimaryKey("PK_ResourceEntry", x => x.Id);
                     table.ForeignKey(
-                        "FK_ResourceDelta_ResourceDeltaCategory_CategoryId",
-                        x => x.CategoryId,
-                        "ResourceDeltaCategory",
-                        "Id",
+                        name: "FK_ResourceEntry_ResourceEntryCategory_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "ResourceEntryCategory",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                "IX_ResourceDelta_CategoryId",
-                "ResourceDelta",
-                "CategoryId");
+                name: "IX_ResourceEntry_CategoryId",
+                table: "ResourceEntry",
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                "IX_ResourceDeltaCategory_ParentCategoryId",
-                "ResourceDeltaCategory",
-                "ParentCategoryId");
+                name: "IX_ResourceEntryCategory_ParentCategoryId",
+                table: "ResourceEntryCategory",
+                column: "ParentCategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                "ResourceDelta");
+                name: "ResourceEntry");
 
             migrationBuilder.DropTable(
-                "ResourceDeltaCategory");
+                name: "ResourceEntryCategory");
         }
     }
 }

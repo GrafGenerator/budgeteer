@@ -8,7 +8,7 @@ namespace Budgeter.BL.Impl
     {
         public static Container UseBlHandlingImplementations(this Container container)
         {
-            var handlersAssemblies = new[] {typeof(AddResourceDeltaCategoryHandler).Assembly};
+            var handlersAssemblies = new[] {typeof(AddResourceEntryCategoryHandler).Assembly};
 
             container.Register(typeof(IOperationHandler<,>), handlersAssemblies, Lifestyle.Scoped);
 
