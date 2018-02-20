@@ -1,5 +1,5 @@
-﻿using Budgeter.BL.Core;
-using Budgeter.BL.Core.GenericResults;
+﻿using Budgeter.BL.Core.Handlers;
+using Budgeter.BL.Core.Handlers.GenericResults;
 using Budgeter.BL.Impl.Handlers.ResourceDeltaCategory.AddResourceDeltaCategory;
 using Budgeter.Domain;
 using Budgeter.Entrypoint.API.Controllers.ResourceDeltaCategories.Models;

@@ -1,4 +1,4 @@
-﻿namespace Budgeter.BL.Core
+﻿namespace Budgeter.BL.Core.Handlers
 {
     public class OperationResult<TResult>
         where TResult : class

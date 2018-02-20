@@ -1,6 +1,6 @@
 ﻿using Budgeter.Domain.Model;
 
-namespace Budgeter.BL.Core.GenericResults
+namespace Budgeter.BL.Core.Handlers.GenericResults
 {
     public class AddEntityResult<T>
         where T : IEntity

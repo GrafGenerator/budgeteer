@@ -1,6 +1,6 @@
 ﻿using System;
-using Budgeter.BL.Core;
-using Budgeter.BL.Core.GenericResults;
+using Budgeter.BL.Core.Handlers;
+using Budgeter.BL.Core.Handlers.GenericResults;
 using Budgeter.Domain;
 
 namespace Budgeter.BL.Impl.Handlers.ResourceDeltaCategory.AddResourceDeltaCategory

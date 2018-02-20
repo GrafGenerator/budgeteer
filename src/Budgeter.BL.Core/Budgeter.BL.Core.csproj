@@ -3,6 +3,10 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Budgeter.DAL.CQRS\Budgeter.DAL.CQRS.csproj">
+      <Project>{9D573560-FC46-47A5-9281-E931A9A3D93B}</Project>
+      <Name>Budgeter.DAL.CQRS</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Budgeter.Domain\Budgeter.Domain.csproj">
       <Project>{EB1C4308-A41B-4A8D-8C9B-D4A0F2A2F609}</Project>
       <Name>Budgeter.Domain</Name>

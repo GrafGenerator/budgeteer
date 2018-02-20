@@ -1,4 +1,4 @@
-﻿using Budgeter.BL.Core;
+﻿using Budgeter.BL.Core.Handlers;
 using Budgeter.BL.Impl.Handlers.ResourceDeltaCategory.AddResourceDeltaCategory;
 using SimpleInjector;
 

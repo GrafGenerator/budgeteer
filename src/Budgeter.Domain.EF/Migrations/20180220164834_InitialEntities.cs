@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Collections.Generic;
 
 namespace Budgeter.Domain.EF.Migrations
 {
@@ -9,8 +7,8 @@ namespace Budgeter.Domain.EF.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ResourceEntryCategory",
-                columns: table => new
+                "ResourceEntryCategory",
+                table => new
                 {
                     Id = table.Column<long>(nullable: false),
                     Name = table.Column<string>(maxLength: 256, nullable: false),
@@ -20,16 +18,16 @@ namespace Budgeter.Domain.EF.Migrations
                 {
                     table.PrimaryKey("PK_ResourceEntryCategory", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ResourceEntryCategory_ResourceEntryCategory_ParentCategoryId",
-                        column: x => x.ParentCategoryId,
-                        principalTable: "ResourceEntryCategory",
-                        principalColumn: "Id",
+                        "FK_ResourceEntryCategory_ResourceEntryCategory_ParentCategoryId",
+                        x => x.ParentCategoryId,
+                        "ResourceEntryCategory",
+                        "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ResourceEntry",
-                columns: table => new
+                "ResourceEntry",
+                table => new
                 {
                     Id = table.Column<long>(nullable: false),
                     Amount = table.Column<decimal>(nullable: false),
@@ -40,31 +38,31 @@ namespace Budgeter.Domain.EF.Migrations
                 {
                     table.PrimaryKey("PK_ResourceEntry", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ResourceEntry_ResourceEntryCategory_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "ResourceEntryCategory",
-                        principalColumn: "Id",
+                        "FK_ResourceEntry_ResourceEntryCategory_CategoryId",
+                        x => x.CategoryId,
+                        "ResourceEntryCategory",
+                        "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ResourceEntry_CategoryId",
-                table: "ResourceEntry",
-                column: "CategoryId");
+                "IX_ResourceEntry_CategoryId",
+                "ResourceEntry",
+                "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ResourceEntryCategory_ParentCategoryId",
-                table: "ResourceEntryCategory",
-                column: "ParentCategoryId");
+                "IX_ResourceEntryCategory_ParentCategoryId",
+                "ResourceEntryCategory",
+                "ParentCategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ResourceEntry");
+                "ResourceEntry");
 
             migrationBuilder.DropTable(
-                name: "ResourceEntryCategory");
+                "ResourceEntryCategory");
         }
     }
 }

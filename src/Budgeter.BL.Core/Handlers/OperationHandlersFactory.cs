@@ -1,8 +1,8 @@
 ﻿using SimpleInjector;
 
-namespace Budgeter.BL.Core
+namespace Budgeter.BL.Core.Handlers
 {
-    public class OperationHandlersFactory : IOperationHandlersFactory
+    internal class OperationHandlersFactory : IOperationHandlersFactory
     {
         private readonly Container _container;
 
