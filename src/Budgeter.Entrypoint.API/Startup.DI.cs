@@ -19,7 +19,8 @@ namespace Budgeter.Entrypoint.API
                 .UseEfAbstractions()
                 .UseDalAbstractions()
                 .UseBlHandlingCore()
-                .UseBlHandlingImplementations();
+                .UseBlHandlingImplementations()
+                .UseMappings();
         }
     }
 }

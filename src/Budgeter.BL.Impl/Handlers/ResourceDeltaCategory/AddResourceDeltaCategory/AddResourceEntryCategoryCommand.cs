@@ -4,5 +4,6 @@ namespace Budgeter.BL.Impl.Handlers.ResourceDeltaCategory.AddResourceDeltaCatego
 {
     public class AddResourceEntryCategoryCommand : IOperationCommand
     {
+        public string Name { get; set; }
     }
 }

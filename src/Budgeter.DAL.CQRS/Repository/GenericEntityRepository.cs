@@ -9,7 +9,7 @@ namespace Budgeter.DAL.CQRS.Repository
 
     {
         private readonly DbContext _context;
-        private DbSet<T> _set;
+        private readonly DbSet<T> _set;
 
         public GenericEntityRepository(DbContext context)
         {
@@ -19,7 +19,7 @@ namespace Budgeter.DAL.CQRS.Repository
 
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            _set.Add(entity);
         }
 
         public void Update(T entity)

@@ -1,4 +1,4 @@
-﻿namespace Budgeter.Entrypoint.API.Controllers.ResourceDeltaCategories.Models
+﻿namespace Budgeter.Entrypoint.API.Controllers.ResourceEntryCategories.Models
 {
     public class CreateResourceEntryCategoryDto
     {

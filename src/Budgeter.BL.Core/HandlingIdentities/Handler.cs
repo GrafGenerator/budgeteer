@@ -2,7 +2,9 @@
 {
     public static class Handler
     {
-        public static HandlerIdentity Identity(int id, string description = "{ no andler desctiption provided }") =>
-            new HandlerIdentity(id, description);
+        public static HandlerIdentity Identity(int id, string description = "{ no andler desctiption provided }")
+        {
+            return new HandlerIdentity(id, description);
+        }
     }
 }

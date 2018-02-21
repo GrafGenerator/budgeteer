@@ -5,12 +5,13 @@ using Budgeter.Domain.Model;
 
 namespace Budgeter.BL.Core.HandlingScope
 {
-    public interface IHandlingScope: IDisposable
+    public interface IHandlingScope : IDisposable
     {
-        IRepository<T> Repo<T>() 
+        HandlerIdentity Identity { get; }
+
+        IRepository<T> Repo<T>()
             where T : class, IEntity;
 
-        HandlerIdentity Identity { get; }
         void Commit();
     }
 }
