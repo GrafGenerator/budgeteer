@@ -4,6 +4,10 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Budgeter.BL.Core\Budgeter.BL.Core.csproj" />
+    <ProjectReference Include="..\Budgeter.Domain.CQRS.Impl\Budgeter.Domain.CQRS.Impl.csproj">
+      <Project>{D730656F-052A-4CB5-B252-3DA633744AE2}</Project>
+      <Name>Budgeter.Domain.CQRS.Impl</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.App" Version="2.0.5" />
