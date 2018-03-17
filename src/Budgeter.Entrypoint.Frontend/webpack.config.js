@@ -8,7 +8,8 @@ module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
 
     // Configuration in common to both client-side and server-side bundles
-    const sharedConfig = () => ({
+    const sharedConfig = () => // noinspection BadExpressionStatementJS
+  ({
         stats: { modules: false },
         resolve: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
         output: {
@@ -18,24 +19,39 @@ module.exports = (env) => {
         module: {
             rules: [
                 { test: /\.tsx?$/, include: /ClientApp/, use: 'awesome-typescript-loader?silent=true' },
-                { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
+                { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' },
+                {
+                  test: /\.scss$/,
+                  use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                      {
+                        loader: 'css-loader',
+                        options: {
+                          modules: true,
+                          sourceMap: true,
+                          importLoaders: 2,
+                          localIdentName: "[name]__[local]___[hash:base64:5]"
+                        }
+                      },
+                      "sass-loader"
+                    ]
+                  })
+                }
             ]
         },
-        plugins: [new CheckerPlugin()]
+        plugins: [
+          new ExtractTextPlugin({ filename: "styles.css", allChunks: true }),
+          new CheckerPlugin()
+        ]
     });
 
     // Configuration for client-side bundle suitable for running in browsers
     const clientBundleOutputDir = './wwwroot/dist';
     const clientBundleConfig = merge(sharedConfig(), {
         entry: { 'main-client': './ClientApp/boot-client.tsx' },
-        module: {
-            rules: [
-                { test: /\.css$/, use: ExtractTextPlugin.extract({ use: isDevBuild ? 'css-loader' : 'css-loader?minimize' }) }
-            ]
-        },
         output: { path: path.join(__dirname, clientBundleOutputDir) },
         plugins: [
-            new ExtractTextPlugin('site.css'),
             new webpack.DllReferencePlugin({
                 context: __dirname,
                 manifest: require('./wwwroot/dist/vendor-manifest.json')

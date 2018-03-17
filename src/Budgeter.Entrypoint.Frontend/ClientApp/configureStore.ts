@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose, combineReducers, GenericStoreEnhancer, Store, StoreEnhancerStoreCreator, ReducersMapObject } from 'redux';
-import thunk from 'redux-thunk';
+import sagaMiddlewareFactory from 'redux-saga';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import * as StoreModule from './store';
 import { ApplicationState, reducers } from './store';
@@ -10,8 +10,11 @@ export default function configureStore(history: History, initialState?: Applicat
     const windowIfDefined = typeof window === 'undefined' ? null : window as any;
     // If devTools is installed, connect to it
     const devToolsExtension = windowIfDefined && windowIfDefined.__REDUX_DEVTOOLS_EXTENSION__ as () => GenericStoreEnhancer;
-    const createStoreWithMiddleware = compose(
-        applyMiddleware(thunk, routerMiddleware(history)),
+
+    const sagaMiddleware = sagaMiddlewareFactory();
+
+    const createStoreWithMiddleware: any = compose(
+        applyMiddleware(sagaMiddleware, routerMiddleware(history)),
         devToolsExtension ? devToolsExtension() : <S>(next: StoreEnhancerStoreCreator<S>) => next
     )(createStore);
 
