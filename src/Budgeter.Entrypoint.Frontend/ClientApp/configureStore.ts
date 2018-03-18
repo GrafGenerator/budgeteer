@@ -3,6 +3,7 @@ import sagaMiddlewareFactory from 'redux-saga';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import * as StoreModule from './store';
 import { ApplicationState, reducers } from './store';
+import rootSaga from "#sagas"
 import { History } from 'history';
 
 export default function configureStore(history: History, initialState?: ApplicationState) {
@@ -21,6 +22,8 @@ export default function configureStore(history: History, initialState?: Applicat
     // Combine all reducers and instantiate the app-wide store instance
     const allReducers = buildRootReducer(reducers);
     const store = createStoreWithMiddleware(allReducers, initialState) as Store<ApplicationState>;
+
+    sagaMiddleware.run(rootSaga);
 
     // Enable Webpack hot module replacement for reducers
     if (module.hot) {
